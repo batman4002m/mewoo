@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>نامه برای عشق من ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:flex-start;
+min-height:100vh;
+overflow-x:hidden;
+overflow-y:auto;
+padding:20px;
+background:linear-gradient(135deg,#ff4e8b,#ff758c,#ff9eb5);
+}
+
+.card{
+
+width:100%;
+max-width:700px;
+
+margin:30px auto;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(20px);
+
+border-radius:30px;
+
+padding:30px 25px;
+
+color:white;
+
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+}
+
+h1{
+
+text-align:center;
+
+margin-bottom:30px;
+
+font-size:34px;
+
+}
+
+#letter{
+
+line-height:2.4;
+
+font-size:19px;
+
+white-space:pre-wrap;
+
+text-align:right;
+
+direction:rtl;
+
+word-break:break-word;
+
+min-height:250px;
+
+}
+
+button{
+
+margin-top:35px;
+
+display:none;
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:50px;
+
+background:white;
+
+color:#ff3f7d;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.04);
+
+}
+
+.heart{
+
+position:fixed;
+
+font-size:30px;
+
+pointer-events:none;
+
+animation:fly 4s linear forwards;
+
+}
+
+@keyframes fly{
+
+0%{
+transform:translateY(0) scale(.6);
+opacity:1;
+}
+
+100%{
+transform:translateY(-110vh) scale(1.5);
+opacity:0;
+}
+
+}
+
+@media(max-width:768px){
+
+body{
+padding:15px;
+}
+
+.card{
+width:100%;
+padding:25px 18px;
+margin:20px auto;
+}
+
+h1{
+font-size:28px;
+}
+
+#letter{
+font-size:17px;
+line-height:2.2;
+}
+
+button{
+font-size:17px;
+padding:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>💌 برای عشق زندگیم</h1>
+
+<div id="letter"></div>
+
+<button id="loveBtn">
+منم دوستت دارم ❤️
+</button>
+
+</div>
+
+<script>
+
+const text=`
+
+سلام عشق قشنگم ❤️
+
+اگر تا اینجا رسیدی،
+یعنی تمام مراحل رو با موفقیت پشت سر گذاشتی...
+
+این سایت فقط یه بازی نبود،
+می‌خواستم یه لبخند روی لبات بشینه.
+
+می‌خواستم بدونی
+هر روز که می‌گذره
+بیشتر از دیروز دوستت دارم.
+
+ممنونم که کنارمی،
+ممنونم که باعث شدی
+زندگی برام قشنگ‌تر بشه.
+
+امیدوارم همیشه کنار هم بخندیم،
+کنار هم رویا بسازیم
+و کنار هم پیر بشیم...
+
+دوستت دارم...
+خیلی بیشتر از چیزی که بشه با کلمه‌ها گفت. ❤️
+
+`;
+
+const box=document.getElementById("letter");
+
+const btn=document.getElementById("loveBtn");
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+box.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}else{
+
+btn.style.display="block";
+
+}
+
+}
+
+type();
+
+btn.onclick=function(){
+
+for(let i=0;i<180;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=Math.random()>0.5?"❤️":"💖";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.bottom="-40px";
+
+h.style.fontSize=(20+Math.random()*25)+"px";
+
+h.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(h);
+
+}
+
+btn.innerHTML="تا همیشه دوستت دارم ❤️";
+
+// غیرفعال کردن دکمه تا دوباره کلیک نشود
+btn.disabled=true;
+
+// بعد از ۴ ثانیه رفتن به صفحه بعد
+setTimeout(function(){
+
+window.location.href="question.html";
+
+},4000);
+
+}
+
+</script>
+
+</body>
+
+</html>

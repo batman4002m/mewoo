@@ -1,0 +1,268 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Vazirmatn',sans-serif;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff4e8b,#ff758c,#ff9eb5);
+
+    position:relative;
+    isolation:isolate;
+}
+
+/* پس زمینه محو */
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#fff;
+    opacity:.08;
+    filter:blur(150px);
+    border-radius:50%;
+    top:-150px;
+    left:-150px;
+
+    pointer-events:none;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:#fff;
+    opacity:.08;
+    filter:blur(120px);
+    border-radius:50%;
+    bottom:-120px;
+    right:-120px;
+
+    pointer-events:none;
+    z-index:-1;
+}
+
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    z-index:2;
+}
+
+.glass{
+    width:100%;
+    max-width:420px;
+    padding:40px 30px;
+    text-align:center;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.35);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+
+    animation:show 1.2s ease;
+}
+
+@keyframes show{
+
+from{
+    opacity:0;
+    transform:translateY(60px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+
+h1{
+
+color:white;
+font-size:34px;
+margin-bottom:25px;
+
+}
+
+.text{
+
+color:white;
+line-height:2;
+font-size:17px;
+margin-bottom:35px;
+
+}
+
+button{
+
+border:none;
+outline:none;
+
+padding:15px 35px;
+
+font-size:18px;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff3f7d;
+
+font-weight:bold;
+
+transition:.3s;
+
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+}
+
+button:hover{
+
+transform:translateY(-5px) scale(1.05);
+
+background:#ffe3ec;
+
+}
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+/* قلب ها */
+
+.hearts span{
+
+position:absolute;
+
+font-size:30px;
+
+color:white;
+
+animation:float 12s linear infinite;
+
+opacity:.7;
+
+}
+
+.hearts span:nth-child(1){
+
+left:10%;
+animation-delay:0s;
+font-size:24px;
+
+}
+
+.hearts span:nth-child(2){
+
+left:25%;
+animation-delay:2s;
+font-size:40px;
+
+}
+
+.hearts span:nth-child(3){
+
+left:45%;
+animation-delay:5s;
+font-size:28px;
+
+}
+
+.hearts span:nth-child(4){
+
+left:60%;
+animation-delay:1s;
+font-size:35px;
+
+}
+
+.hearts span:nth-child(5){
+
+left:78%;
+animation-delay:4s;
+font-size:22px;
+
+}
+
+.hearts span:nth-child(6){
+
+left:90%;
+animation-delay:7s;
+font-size:45px;
+
+}
+
+@keyframes float{
+
+0%{
+
+bottom:-50px;
+transform:translateX(0) rotate(0deg);
+
+}
+
+50%{
+
+transform:translateX(30px) rotate(180deg);
+
+}
+
+100%{
+
+bottom:110%;
+transform:translateX(-30px) rotate(360deg);
+
+}
+
+}
+
+/* موبایل */
+
+@media(max-width:500px){
+
+.glass{
+
+padding:30px 20px;
+
+}
+
+h1{
+
+font-size:28px;
+
+}
+
+.text{
+
+font-size:15px;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+}

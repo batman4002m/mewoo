@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحله اول ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .card{
+
+            width:90%;
+            max-width:420px;
+
+            background:rgba(255,255,255,.15);
+
+            backdrop-filter:blur(20px);
+
+            border-radius:25px;
+
+            padding:35px;
+
+            text-align:center;
+
+            color:white;
+
+            box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+        }
+
+        h2{
+
+            margin-bottom:20px;
+
+        }
+
+        input{
+
+            width:100%;
+
+            padding:15px;
+
+            margin-top:20px;
+
+            border:none;
+
+            border-radius:12px;
+
+            font-size:17px;
+
+            text-align:center;
+
+        }
+
+        button{
+
+            margin-top:20px;
+            width:100%;
+
+        }
+
+        #msg{
+
+            margin-top:20px;
+
+            font-size:18px;
+
+            min-height:30px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>🧩 مرحله اول</h2>
+
+<p>
+
+برای رسیدن به سورپرایز باید جواب این سؤال رو بدی...
+
+<br><br>
+
+<strong>اولین بار چی صدات زدم❤️</strong>
+
+</p>
+
+<input id="answer" placeholder="جوابت رو بنویس...">
+
+<button onclick="checkAnswer()">
+
+ بریم ببینیم نینی 💖
+
+</button>
+
+<div id="msg"></div>
+
+</div>
+
+<script>
+
+function checkAnswer(){
+
+const answer=document.getElementById("answer").value.trim();
+
+const msg=document.getElementById("msg");
+
+// جواب درست رو اینجا تغییر بده
+if(answer==="بچه"){
+
+msg.style.color="#7CFFB2";
+
+msg.innerHTML="آفرین 😍 بریم مرحله بعد...";
+
+setTimeout(()=>{
+
+window.location.href="game.html";
+
+},1500);
+
+}
+
+else{
+
+msg.style.color="#FFD4D4";
+
+msg.innerHTML="بوووو بییوننننن.";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تا همیشه ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+overflow:hidden;
+background:linear-gradient(180deg,#0f172a,#1e293b,#334155);
+font-family:tahoma;
+}
+
+.container{
+width:100%;
+max-width:700px;
+text-align:center;
+padding:25px;
+color:white;
+z-index:10;
+}
+
+h1{
+font-size:clamp(30px,7vw,42px);
+margin-bottom:20px;
+}
+
+p{
+font-size:clamp(17px,4.5vw,22px);
+line-height:2.1;
+max-width:700px;
+margin:auto;
+}
+
+.names{
+margin-top:35px;
+font-size:clamp(22px,6vw,32px);
+font-weight:bold;
+}
+
+.heart{
+position:fixed;
+font-size:30px;
+pointer-events:none;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+
+from{
+opacity:.3;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+@media(max-width:600px){
+
+.container{
+padding:15px;
+}
+
+p{
+line-height:2;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ تا همیشه ❤️</h1>
+
+<p>
+
+ممنونم که تا آخر این سفر کنارم بودی...
+
+<br><br>
+
+تو قشنگ‌ترین اتفاق زندگیمی.
+
+<br><br>
+
+امیدوارم سال‌های سال کنار هم بخندیم،
+رویا بسازیم،
+و خاطره جمع کنیم...
+
+<br><br>
+
+دوستت دارم،
+بیشتر از چیزی که بشه با کلمه‌ها گفت. ❤️
+
+</p>
+
+<div class="names">
+ امیر فینگیلی ❤️ فاطمه کوچولوم
+</div>
+
+</div>
+
+<script>
+
+// ستاره‌ها
+for(let i=0;i<100;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+let size=Math.random()*3+1;
+
+star.style.width=size+"px";
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(star);
+
+}
+
+// بارش قلب
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>0.5?"❤️":"💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+},250);
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بازی قلب‌ها ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+width:95%;
+max-width:420px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(20px);
+text-align:center;
+color:white;
+
+position:relative;
+z-index:20;
+}
+
+.board{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:25px;
+
+position:relative;
+z-index:30;
+}
+
+.box{
+height:75px;
+border-radius:18px;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:35px;
+cursor:pointer;
+user-select:none;
+-webkit-user-select:none;
+touch-action:manipulation;
+-webkit-tap-highlight-color:transparent;
+position:relative;
+z-index:10;
+}
+
+.box:hover{
+transform:scale(1.05);
+}
+
+.hide{
+color:transparent;
+}
+
+#msg{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>❤️ بازی حافظه</h2>
+
+<p>همه جفت قلب‌ها را پیدا کن تا هدیه باز شود.</p>
+
+<div class="board" id="board"></div>
+
+<div id="msg"></div>
+
+</div>
+
+<script>
+
+const emojis=[
+"❤️","❤️",
+"💖","💖",
+"💘","💘",
+"💕","💕",
+"💝","💝",
+"🌹","🌹",
+"😍","😍",
+"🥰","🥰"
+];
+
+emojis.sort(()=>Math.random()-0.5);
+
+const board=document.getElementById("board");
+
+let first=null;
+let second=null;
+let lock=false;
+let matched=0;
+
+emojis.forEach(icon=>{
+
+const div=document.createElement("div");
+
+div.className="box hide";
+div.textContent=icon;
+
+div.onclick = flipCard;
+
+function flipCard(){
+
+if(lock) return;
+
+if(div===first) return;
+
+if(!div.classList.contains("hide")) return;
+
+div.classList.remove("hide");
+
+if(first===null){
+
+first=div;
+return;
+
+}
+
+second=div;
+
+lock=true;
+
+if(first.textContent===second.textContent){
+
+matched++;
+
+first=null;
+second=null;
+lock=false;
+
+if(matched===8){
+
+document.getElementById("msg").innerHTML="🎉 آفرین عشق من ❤️";
+
+setTimeout(()=>{
+
+window.location.href="gift.html";
+
+},1500);
+
+}
+
+}else{
+
+setTimeout(()=>{
+
+first.classList.add("hide");
+second.classList.add("hide");
+
+first=null;
+second=null;
+lock=false;
+
+},700);
+
+}
+
+}
+
+board.appendChild(div);
+
+});
+
+</script>
+</body>
+</html> 
